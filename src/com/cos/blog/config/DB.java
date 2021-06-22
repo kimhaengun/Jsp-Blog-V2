@@ -1,6 +1,8 @@
 package com.cos.blog.config;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -19,5 +21,14 @@ public class DB {
 			System.out.println("DB연결 실패:"+e.getMessage());
 		}
 		return null;
+	}
+	public static void close(Connection conn, PreparedStatement pstmt) {
+		try {
+			conn.close();
+			pstmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
