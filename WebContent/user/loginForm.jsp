@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file= "../layout/header.jsp" %>
 <div class="container">
-	<form action="/blog2/user?cmd=login" method="post" onsubmit="return valid()">
+	<form action="/blog2/user?cmd=login" method="post">
 		<div class="form-group">
 		<div class = "d-flex justify-content-between">
 			<label for="text">username:</label>

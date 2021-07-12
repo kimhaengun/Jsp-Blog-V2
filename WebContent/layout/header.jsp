@@ -18,7 +18,7 @@
 <nav class="navbar navbar-expand-sm bg-light">
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" href="#">Main</a>
+      <a class="nav-link" href="<%=request.getContextPath()%>">Main</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="<%=request.getContextPath()%>/user?cmd=joinForm">회원가입</a>
