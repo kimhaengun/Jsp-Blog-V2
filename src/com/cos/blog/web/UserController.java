@@ -1,6 +1,9 @@
 package com.cos.blog.web;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -70,6 +73,21 @@ public class UserController extends HttpServlet {
 			}else {
 				Script.back(response, "회원가입 실패");
 			}
+		}else if(cmd.equals("usernameCheck")) {
+			//key=value 형식이 아닌 text형식이기 때문에 Buffer로 받아야함
+			BufferedReader br = request.getReader();
+			String username = br.readLine();
+			System.out.println(username);
+			
+			userService.유저네임중복체크(username);
+			int result = userService.유저네임중복체크(username);
+			PrintWriter out = response.getWriter();
+			if(result == 1) {
+				out.print("ok");
+			}else {
+				out.print("fail");
+			}
+			out.flush();
 		}
 		
 	}
