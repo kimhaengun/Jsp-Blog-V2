@@ -62,6 +62,10 @@ public class UserController extends HttpServlet {
 			}else {
 				Script.back(response, "로그인 실패");
 			}
+		}else if(cmd.equals("logout")){
+			HttpSession session = request.getSession();
+			session.invalidate();
+			response.sendRedirect("index.jsp");
 		}else if(cmd.equals("joinForm")) {
 			response.sendRedirect("user/joinForm.jsp");
 		}else if(cmd.equals("join")) {
